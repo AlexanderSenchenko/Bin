@@ -1,18 +1,23 @@
+#include "coder.h"
+#include <inttypes.h>
+#include <stdio.h>
 #include "command.h"
-#include <inttypes>
 
 int encode_file(const char *in_file_name, const char *out_file_name)
 {
-	FILE *in_file_name, *out_file_name;
-	CodeUnit code_unit;
-	unit32_t code_point;
+	FILE *in_file, *out_file;
+	//CodeUnits code_units;
+	uint32_t code_point;
 
-	in_file_name = fopen("points.txt", "r");
-	out_file_name = fopen("units.bin", "w");
+	in_file = fopen(in_file_name, "r");
+	out_file = fopen(out_file_name, "w");
 
-	fscanf(in_file_name, "%d", code_point);
+	fscanf(in_file, "%d", &code_point);
+	fprintf(out_file, "%d", code_point);
 
-	encode(code_point, code_unit)
+	//encode(code_point, code_units);
+
+	return 0;
 }
 
 //int decode_file(const char *in_file_name, const char *out_file_name)
