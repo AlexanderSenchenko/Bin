@@ -2,6 +2,7 @@
 #define CODER_H
 #include <stddef.h>
 #include <inttypes.h>
+#include "command.h"
 
 enum {
 	MaxCodeLength = 4
