@@ -5,7 +5,15 @@
 
 int encode(uint32_t code_point, CodeUnits *code_units)
 {
-	printf("%x", code_point % 10);
+	uint32_t test = code_point;
+	int byte;
+	for (byte = 0; test != 0; byte++) {
+		test = test >> 6;
+	}
+		
+	printf("%d\n", byte);
+	printf("%" PRIx32, test);
+	printf("\n");
 
 	return 0;
 }

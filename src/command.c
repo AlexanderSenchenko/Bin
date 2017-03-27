@@ -5,19 +5,18 @@
 
 int encode_file(const char *in_file_name, const char *out_file_name)
 {
-	FILE *in_file, *out_file;
+	FILE *in;
 	uint32_t code_point;
 	CodeUnits *code_units;
 
-	in_file = fopen(in_file_name, "r");
-	out_file = fopen(out_file_name, "w");
+	in = fopen(in_file_name, "r");
+	fscanf(in, "%" SCNx32, &code_point);
+	fclose(in);
 
-	fscanf(in_file, "%d", &code_point);
+	printf("%" PRIx32, code_point);
+	printf("\n");
 
 	encode(code_point, code_units);
-
-	fclose(out_file);
-	fclose(in_file);
 
 	return 0;
 }
