@@ -15,9 +15,14 @@ int encode_file(const char *in_file_name, const char *out_file_name)
 
 	encode(code_point, &code_units);
 
+	for (size_t i = 0; i < code_units.legth; i++) {
+		printf("%" "x", code_units.code[i]);
+	}
+	//printf("%zu", code_units.legth);
+
 	out = fopen(out_file_name, "wb");
 
-	fwrite(code_units.code, code_units.legth, sizeof(code_units.code), out);
+	write_code_unit(out, &code_units);
 
 	fclose(out);
 
